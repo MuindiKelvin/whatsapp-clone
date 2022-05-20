@@ -12,6 +12,7 @@ import firebase from "firebase";
 import { useStateValue } from "./StateProvider";
 
 
+
 function Chat() {
     const [input, setInput] = useState("");
     const [seed, setSeed] = useState("");
@@ -19,6 +20,7 @@ function Chat() {
     const [roomName, setRoomName]= useState("");
     const [messages, setMessages] = useState([]);
     const [ { user }, dispatch] =useStateValue();
+    
     
 
     useEffect(() => {
@@ -56,6 +58,9 @@ function Chat() {
         
         setInput("");
     };
+
+
+   
 
   return (
     <div className='chat'>
@@ -101,11 +106,14 @@ function Chat() {
         </div>
 
         <div className='chat__footer'>
-            < InsertEmoticonIcon />
-              <form>
+          < InsertEmoticonIcon /> 
+            
+             <form>
                   <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Type a message" type='text' />
-                  <button onClick={sendMessage} type='submit'>Send a message</button>
+                   <button onClick={sendMessage} type='submit'>Send a message</button>
               </form>
+            
+
             <MicIcon />
         </div>
       
